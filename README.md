@@ -106,7 +106,7 @@ Transformer-based encoder + linear classification head for identifying active-tr
 
 Reconciles content-based locations (extracted from tweet text via NEM) with geotag-based locations, with conflict-resolution rules.
 
-![Location fusion](01-nlp-active-travel/location-fusion.png)
+<img src="01-nlp-active-travel/location-fusion.png" alt="Location fusion" width="100%">
 
 ### Results
 
