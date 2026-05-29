@@ -13,7 +13,7 @@ This repo presents the frameworks, workflows, and key results from three case st
 | # | Topic | Data | Methods |
 |---|---|---|---|
 | 1 | [NLP for active-travel extraction from social media](#case-1-unveiling-active-travel-from-social-media-with-nlp) | Twitter, Greater Melbourne, 2018–2021 | BERT classification · Named Entity Matching · Location fusion |
-| 2 | [Spatial heterogeneous impacts of urban heat island on active travel](#case-2-spatial-heterogeneous-impacts-of-urban-heat-island-on-active-travel) | Mesh Block UHI index + social-media-derived trips | Geographically Weighted Regression (GWR) |
+| 2 | [Spatial heterogeneous impacts of urban heat island on active travel](#case-2-spatial-heterogeneous-impacts-of-urban-heat-island-on-active-travel) | Mesh Block UHI index + social-media-derived trips | Multiscale Geographically Weighted Regression (MGWR) |
 | 3 | [Non-linear effects on shared e-scooter speed](#case-3-non-linear-effects-on-shared-e-scooter-speed) | Lime e-scooter & e-bike GPS trajectories (Melbourne CBD) | Map-matching · XGBoost / Random Forest / CatBoost · SHAP |
 
 ---
@@ -48,7 +48,7 @@ Reconciles content-based locations (extracted from tweet text via NEM) with geot
 *(b) Ratio comparison across LGAs*
 ![Result LGA chart](01-nlp-active-travel/result-lga-b.jpg)
 
-📄 **Publication**: *Identifying active transport from spontaneous data sources with natural language processing*, **TRB 2024** — [view on Google Scholar](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=xtDZ5SEAAAAJ&citation_for_view=xtDZ5SEAAAAJ:d1gkVwhDpl0C)  
+📄 **Publication (full paper included)**: *Identifying active transport from spontaneous data sources with natural language processing*, **TRB 2024** — [Google Scholar](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=xtDZ5SEAAAAJ&citation_for_view=xtDZ5SEAAAAJ:d1gkVwhDpl0C) · [PDF in repo](assets/TRB_2024_Teng_NLP.pdf)  
 💡 **Patent**: *A method for integrating geotagged location and text location information in social media* — [CN117236316B](https://patents.google.com/patent/CN117236316B/zh)
 
 ---
@@ -56,17 +56,17 @@ Reconciles content-based locations (extracted from tweet text via NEM) with geot
 ## Case 2: Spatial Heterogeneous Impacts of Urban Heat Island on Active Travel
 
 > **Problem.** Urban heat island (UHI) effects on active travel are typically modelled as spatially uniform — but heat exposure and behavioural response vary substantially across the city.  
-> **Contribution.** First spatial-heterogeneous assessment of UHI on active travel in Melbourne, using Geographically Weighted Regression at Mesh Block resolution and a social-media-derived trip dataset.
+> **Contribution.** First spatial-heterogeneous assessment of UHI on active travel in Melbourne, using **Multiscale Geographically Weighted Regression (MGWR)** at Mesh Block resolution. MGWR allows each covariate (UHI, parkland, transit access, demographics, etc.) to operate at its own optimal spatial scale, revealing that different drivers of active travel respond to urban heat at fundamentally different geographic ranges.
 
 ### Urban Heat Island Index — Mesh Block level, Greater Melbourne
 ![UHI map](02-uhi-active-travel/uhi-map.png)
 
-### Spatial Heterogeneity of UHI Impact (GWR coefficients)
+### Spatial Heterogeneity of UHI Impact (MGWR coefficients)
 
 **UHI effects on all-day vs summer-only active-travel trips:**
 ![UHI heterogeneity](02-uhi-active-travel/result-spatial-heterogeneity-UHI.jpg)
 
-**GWR coefficients for built-environment & socio-demographic controls** (Parkland, Tram stop density, Bus stops, Population density, Age 15–34, Household income, Unemployment, Higher education, Vehicle ownership):
+**MGWR coefficients for built-environment & socio-demographic controls** (Parkland, Tram stop density, Bus stops, Population density, Age 15–34, Household income, Unemployment, Higher education, Vehicle ownership). Each variable's panel shows its own optimal bandwidth (BW), indicating the spatial scale at which it most strongly affects active travel:
 ![Other factor heterogeneity](02-uhi-active-travel/result-spatial-heterogeneity-other.jpg)
 
 📄 **Publication (full paper included)**: *Assessing the spatial heterogeneous impacts of urban heat island effects on active travel by leveraging social media data*, ***Sustainable Cities and Society***, 2025 — [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S2772586325000577) · [PDF in repo](02-uhi-active-travel/paper.pdf)
@@ -109,6 +109,7 @@ Threshold and curvilinear effects of POI density, residential density, intersect
 
 **Languages** — Python, SQL, R  
 **Geospatial** — ArcGIS Pro, QGIS, PostGIS, GeoPandas, Shapely  
+**Spatial statistics** — MGWR (mgwr Python library), Moran's I, spatial autocorrelation analysis  
 **ML / NLP** — PyTorch, Hugging Face Transformers, XGBoost, CatBoost, scikit-learn, SHAP  
 **Data engineering** — PySpark, ETL pipelines on large GPS trajectory datasets, map-matching with OSRM  
 **Visualisation** — ArcGIS cartography, matplotlib, Folium
