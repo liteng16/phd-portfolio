@@ -89,6 +89,15 @@ Data preprocessing → map-matching → point-pairing → feature engineering �
 Spatial distribution of shared e-scooter and e-bike trips across the study area.
 ![Data overview](03-escooter-speed/data-overview.png)
 
+### Temporal Pattern — Hourly trip distribution
+Hourly departure trips reveal distinct commuting vs leisure patterns between weekdays and weekends.
+
+*(a) Absolute trip count by hour:*
+![Hourly trips count](03-escooter-speed/hourly-trips-a.jpg)
+
+*(b) Trip ratio by hour:*
+![Hourly trips ratio](03-escooter-speed/hourly-trips-b.jpg)
+
 ### SHAP-based Feature Importance
 
 *(a) Per-observation SHAP values (violin plot):*
