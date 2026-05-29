@@ -108,7 +108,8 @@ Reconciles content-based locations (extracted from tweet text via NEM) with geot
 
 *(a) Decision flow for fusing Con-Loc and Geo-Loc:*
 
-![Location fusion flowchart](01-nlp-active-travel/location-fusion-a.png)
+
+<img src="01-nlp-active-travel/location-fusion-a.png" alt="Location fusion flowchart" width="50%">
 
 *(b) Worked example — from location-contained tweets to trip tabulation:*
 
