@@ -100,7 +100,7 @@ End-to-end pipeline: data cleansing → tweet classification → location extrac
 
 Transformer-based encoder + linear classification head for identifying active-travel-related tweets.
 
-![BERT-CLA](01-nlp-active-travel/bert-cla-architecture.png)
+<img src="01-nlp-active-travel/bert-cla-architecture.png" alt="BERT-CLA" width="50%">
 
 ### Location Fusion Strategy
 
@@ -189,13 +189,13 @@ E-scooter and e-bike show distinct temporal signatures: e-scooter is leisure-dom
 
 ### SHAP-based Feature Importance
 
-*(a) Per-observation SHAP values (violin plot):*
+Left: per-observation SHAP values (violin plot). Right: mean absolute SHAP value (importance ranking).
 
-![SHAP violin](03-escooter-speed/shap-importance-a.jpg)
-
-*(b) Mean absolute SHAP value (importance ranking):*
-
-![SHAP bar](03-escooter-speed/shap-importance-b.jpg)
+<p align="center">
+  <img src="03-escooter-speed/shap-importance-a.jpg" width="48%" alt="SHAP violin">
+  &nbsp;
+  <img src="03-escooter-speed/shap-importance-b.jpg" width="48%" alt="SHAP bar">
+</p>
 
 ### Non-linear Partial Dependence (top continuous features)
 
