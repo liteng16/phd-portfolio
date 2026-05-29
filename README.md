@@ -18,6 +18,48 @@ This repo presents the frameworks, workflows, and key results from three case st
 
 ---
 
+## 🗺️ Study Area & Cartographic Work
+
+All case studies are situated in **Greater Melbourne**. The maps below — produced in ArcGIS Pro and QGIS — characterise the study area's geography, population, and multi-modal transport networks. They demonstrate cartographic design choices made for the thesis: layer hierarchy, classification schemes, label placement, and consistent visual identity across figures.
+
+### Greater Melbourne — Study Region
+LGA boundaries grouped into Inner / Middle / Outer Melbourne to support multi-scale analysis.
+![Melbourne map](00-study-area/fig3-1-melbourne-map.png)
+
+### Population — Density and Count by Suburb
+Two complementary normalisations: per-km² density (top) and absolute count (bottom). Density highlights inner-city intensity; count highlights outer suburbs with large populations.
+![Population distribution](00-study-area/fig3-2-population-distribution.png)
+
+### Bicycle Infrastructure Network
+Eight infrastructure types classified across Greater Melbourne (top) with a City-of-Melbourne zoom (bottom) showing the protected-lane backbone in the inner city.
+![Bicycle network](00-study-area/fig3-3-bicycle-network.png)
+
+### Tram Network
+Tram stops and routes overlaid on satellite imagery, with an inset locator. Service is concentrated in the inner and middle ring.
+![Tram network](00-study-area/fig3-4-tram-network.png)
+
+### Tram — Hourly Trip Profile
+Trips per hour for four day types. Clear AM (7am) and PM (4–5pm) commuter peaks on weekdays; flatter midday-dominant profile on weekends.
+![Tram hourly](00-study-area/fig3-5-tram-hourly.jpg)
+
+### Train Stations
+Metropolitan rail network across Greater Melbourne, with radial extensions to outer LGAs (Wyndham, Casey, Cardinia, Mornington Peninsula).
+![Train stations](00-study-area/fig3-6-train-stations.png)
+
+### Train — Hourly Trip Profile
+Distinct weekday commuter peaks (7am, 4–5pm) contrast with the flatter, daytime-dominant pattern on weekends.
+![Train hourly](00-study-area/fig3-7-train-hourly.jpg)
+
+### Bus Stops
+Greater Melbourne bus stop coverage — denser than tram and rail, extending into outer suburbs where rail does not reach.
+![Bus stops](00-study-area/fig3-8-bus-stops.png)
+
+### Bus — Hourly Trip Profile
+Bus shows the strongest weekday/weekend contrast of all three modes, with a sharp 7am AM peak and broad afternoon peak.
+![Bus hourly](00-study-area/fig3-9-bus-hourly.jpg)
+
+---
+
 ## Case 1: Unveiling Active Travel from Social Media with NLP
 
 > **Problem.** Social media is a rich but noisy source of active-travel signals. Most tweets lack precise geo-coordinates, so spatial analysis is usually limited to the small fraction of geo-tagged posts.  
@@ -85,17 +127,17 @@ Data preprocessing → map-matching → point-pairing → feature engineering �
 ### Study Area — Melbourne CBD and surroundings
 ![Study area](03-escooter-speed/study-area.png)
 
-### Data Overview — Weekday vs weekend trip density
+### Data Overview — Spatial trip density (weekday vs weekend)
 Spatial distribution of shared e-scooter and e-bike trips across the study area.
 ![Data overview](03-escooter-speed/data-overview.png)
 
 ### Temporal Pattern — Hourly trip distribution
-Hourly departure trips reveal distinct commuting vs leisure patterns between weekdays and weekends.
+E-scooter and e-bike show distinct temporal signatures: e-scooter is leisure-dominated (afternoon and late-night peaks, weekend > weekday), while e-bike weekday demand peaks sharply at 5pm — closer to a commuter pattern.
 
-*(a) Absolute trip count by hour:*
+*(a) Absolute hourly trip demand:*
 ![Hourly trips count](03-escooter-speed/hourly-trips-a.jpg)
 
-*(b) Trip ratio by hour:*
+*(b) Within-mode ratio by hour (normalised demand share):*
 ![Hourly trips ratio](03-escooter-speed/hourly-trips-b.jpg)
 
 ### SHAP-based Feature Importance
